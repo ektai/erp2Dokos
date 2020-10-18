@@ -1,0 +1,168 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{event}-{####}",
+ "creation": "2020-09-09 08:54:53.825485",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "event",
+  "slot_title",
+  "column_break_3",
+  "starts_on",
+  "ends_on",
+  "bookings_section",
+  "available_bookings",
+  "column_break_8",
+  "already_booked",
+  "registered_users_section",
+  "registered_users_html",
+  "registered_emails",
+  "description_section",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "event",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Event",
+   "options": "Event",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "available_bookings",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Available slots",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "event.starts_on",
+   "fetch_if_empty": 1,
+   "fieldname": "starts_on",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Slot Start Time",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "event.ends_on",
+   "fetch_if_empty": 1,
+   "fieldname": "ends_on",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Slot End Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "already_booked",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Already booked",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bookings_section",
+   "fieldtype": "Section Break",
+   "label": "Bookings"
+  },
+  {
+   "fetch_from": "event.subject",
+   "fetch_if_empty": 1,
+   "fieldname": "slot_title",
+   "fieldtype": "Data",
+   "label": "Slot Title"
+  },
+  {
+   "depends_on": "eval:doc.already_booked > 0",
+   "fieldname": "registered_users_section",
+   "fieldtype": "Section Break",
+   "label": "Registered Users"
+  },
+  {
+   "fieldname": "registered_users_html",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "registered_emails",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Registered Emails"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "group": "Bookings",
+   "link_doctype": "Event Slot Booking",
+   "link_fieldname": "event_slot"
+  }
+ ],
+ "modified": "2020-10-13 16:57:10.377564",
+ "modified_by": "Administrator",
+ "module": "Venue",
+ "name": "Event Slot",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Venue Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Volunteer",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "slot_title",
+ "track_changes": 1
+}

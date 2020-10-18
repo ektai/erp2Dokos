@@ -1,0 +1,53 @@
+{% for d in doc.items %}
+<tr data-name="{{ d.name }}">
+	<td>
+		<div class="font-weight-bold">
+			{{ d.item_name }}
+		</div>
+		<div>
+			<a href="{{ d.route }}">{{ d.item_code }}</a>
+		</div>
+
+		{% if d.item_booking %}
+		{% set item_booking_doc = frappe.db.get_value('Item Booking', d.item_booking, ['starts_on', 'ends_on'], as_dict=True) %}
+		<div>
+			{{ frappe.utils.format_datetime(item_booking_doc.starts_on) }} - {{ frappe.utils.format_datetime(item_booking_doc.ends_on) }}
+		</div>
+		{% endif %}
+
+		{% set items_params = frappe.db.get_value('Item', d.item_code, ['variant_of', 'enable_item_booking'], as_dict=True) %}
+		{% if items_params["variant_of"] %}
+		<span class="text-muted">
+			{{ _('Variant of') }} <a href="{{frappe.db.get_value('Item', items_params['variant_of'], 'route')}}">{{ items_params["variant_of"] }}</a>
+		</span>
+		{% endif %}
+		<div class="mt-2">
+			<textarea data-item-code="{{d.item_code}}" class="form-control" rows="2" placeholder="{{ _('Add notes') }}">{{d.additional_notes or ''}}</textarea>
+		</div>
+	</td>
+	<td class="text-right">
+		<div class="input-group number-spinner">
+			<span class="input-group-prepend d-none d-md-inline-block">
+				<button class="btn btn-outline-secondary cart-btn" data-dir="dwn" {% if items_params["enable_item_booking"] and d.item_booking %}disabled{% endif %}>–</button>
+			</span>
+			<input class="form-control text-right cart-qty border-secondary" value="{{ d.get_formatted('qty') }}" data-item-code="{{ d.item_code }}" {% if items_params["enable_item_booking"] %}disabled{% endif %}>
+			<span class="input-group-append d-none d-md-inline-block">
+				<button class="btn btn-outline-secondary cart-btn" data-dir="up" {% if items_params["enable_item_booking"] and d.item_booking %}disabled{% endif %}>+</button>
+			</span>
+		</div>
+		{% if items_params["enable_item_booking"] and d.item_booking %}
+			<div class="text-center mt-2">
+				<button class="btn btn-default btn-xs item-booking-btn" data-item-code="{{d.item_code}}" data-item-route="{{d.route}}">{{ _("Change booking") }}</button>
+			</div>
+		{% endif %}
+	</td>
+	<td class="text-right">
+		<div>
+			{{ d.get_formatted('amount') }}
+		</div>
+		<span class="text-muted">
+			{{ _('Rate:') }} {{ d.get_formatted('rate') }}
+		</span>
+	</td>
+</tr>
+{% endfor %}

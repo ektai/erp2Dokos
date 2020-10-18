@@ -1,0 +1,21 @@
+{
+ "action": "Update Settings",
+ "creation": "2020-05-14 17:53:00.876946",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "field": "",
+ "idx": 0,
+ "is_complete": 0,
+ "is_mandatory": 0,
+ "is_single": 1,
+ "is_skipped": 0,
+ "modified": "2020-05-19 09:13:09.567684",
+ "modified_by": "Administrator",
+ "name": "Configure Account Settings",
+ "owner": "Administrator",
+ "reference_document": "Accounts Settings",
+ "show_full_form": 1,
+ "title": "Configure Account Settings",
+ "validate_action": 0,
+ "value_to_validate": ""
+}

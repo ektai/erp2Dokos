@@ -1,0 +1,17 @@
+{
+  "name": "erpnext",
+  "description": "Open Source ERP System",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/dokos/dokos.git"
+  },
+  "homepage": "https://dokos.io",
+  "author": "Dokos SAS",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://gitlab.com/dokos/dokos/issues"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "scripts": {}
+}

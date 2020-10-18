@@ -1,0 +1,10 @@
+{% extends 'frappe/templates/includes/navbar/navbar_items.html' %}
+
+{% block navbar_right_extension %}
+	<li class="shopping-cart cart-icon align-items-center px-3 hidden">
+		<a href="/cart" class="nav-link">
+			{{ _("Cart") }}
+			<span class="badge badge-primary" id="cart-count" style="font-size: 90%;"></span>
+		</a>
+	</li>
+{% endblock %}

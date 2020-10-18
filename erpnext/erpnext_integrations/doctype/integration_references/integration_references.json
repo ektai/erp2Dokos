@@ -1,0 +1,106 @@
+{
+ "allow_rename": 1,
+ "creation": "2019-08-21 17:10:07.246025",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "column_break_2",
+  "customer_name",
+  "stripe_section",
+  "stripe_customer_id",
+  "column_break_6",
+  "stripe_settings",
+  "gocardless_section",
+  "gocardless_customer_id",
+  "column_break_8",
+  "gocardless_settings"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stripe_section",
+   "fieldtype": "Section Break",
+   "label": "Stripe"
+  },
+  {
+   "fieldname": "stripe_customer_id",
+   "fieldtype": "Data",
+   "label": "Customer ID"
+  },
+  {
+   "fieldname": "gocardless_section",
+   "fieldtype": "Section Break",
+   "label": "GoCardless"
+  },
+  {
+   "fieldname": "gocardless_customer_id",
+   "fieldtype": "Data",
+   "label": "Customer ID"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gocardless_settings",
+   "fieldtype": "Link",
+   "label": "GoCardless Settings",
+   "options": "GoCardless Settings"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stripe_settings",
+   "fieldtype": "Link",
+   "label": "Stripe Settings",
+   "options": "Stripe Settings"
+  }
+ ],
+ "modified": "2019-08-22 19:30:55.564180",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integrations",
+ "name": "Integration References",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "customer_name",
+ "track_changes": 1
+}

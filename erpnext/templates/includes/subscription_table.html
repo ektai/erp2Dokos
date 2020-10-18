@@ -1,0 +1,51 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">{{ _("Plan") }}</th>
+			<th scope="col">{{ _("Quantity") }}</th>
+			<th scope="col">{{ _("Rate") }}</th>
+			<th scope="col">{{ _("Amount") }}</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for plan in subscription.plans %}
+			{% if frappe.utils.getdate(plan.to_date) >= frappe.utils.getdate(frappe.utils.nowdate()) %}
+				{% set item_name = frappe.db.get_value("Item", plan.item, "item_name") %}
+				<tr>
+					<th><h6>{{ item_name }}</h6><span>{{ plan.description or "" }}</span></th>
+					<td>{{ plan.qty }}</td>
+					<td>{{ frappe.utils.fmt_money(plan.rate, currency=subscription.currency) }}</td>
+					<td>{{ frappe.utils.fmt_money(frappe.utils.flt(plan.rate) * frappe.utils.flt(plan.qty), currency=subscription.currency) }}</td>
+					{% if plan.edit_on_portal and not plan.to_date %}
+						<td><i class="uil uil-trash-alt" id="{{ plan.name }}_trash"></i></td>
+					{% elif plan.to_date %}
+						<td><span class="small">{{ _("Ends on") }} {{ frappe.utils.global_date_format(plan.to_date) }}</span></td>
+					{% else %}
+						<td></td>
+					{% endif %}
+				</tr>
+			{% endif %}
+		{% endfor %}
+		<tr>
+			<th></th>
+			<td></td>
+			<td><strong>{{ _("Net Total") }}</strong></td>
+			<td>{{ frappe.utils.fmt_money(subscription.total, currency=subscription.currency) }}</td>
+		</tr>
+		{% if frappe.utils.flt(subscription.total) != frappe.utils.flt(subscription.grand_total) %}
+		<tr class="total-row">
+			<th></th>
+			<td></td>
+			<td><strong>{{ _("Projected Taxes") }}</strong></td>
+			<td>{{ frappe.utils.fmt_money(frappe.utils.flt(subscription.grand_total) - frappe.utils.flt(subscription.total), currency=subscription.currency) }}</td>
+		</tr>
+		<tr class="total-row">
+			<th></th>
+			<td></td>
+			<td><strong>{{ _("Grand Total") }}</strong></td>
+			<td>{{ frappe.utils.fmt_money(subscription.grand_total, currency=subscription.currency) }}</td>
+		</tr>
+		{% endif %}
+	</tbody>
+</table>

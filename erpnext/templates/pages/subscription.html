@@ -1,0 +1,59 @@
+{% extends "templates/web.html" %}
+
+{% block title %} {{ _(title) }} {% endblock %}
+
+{% block header %}<h2>{{ _(title) }}</h2>{% endblock %}
+
+{% block page_content %}
+<div class="subscriptions-section">
+	<div class="current-subscription frappe-card hide"></div>
+	<div class="available-plans frappe-card hide"></div>
+	<div class="invoicing-status frappe-card hide"></div>
+	<div class="cancellation-options frappe-card hide"></div>
+	<div class="available-subscriptions hide"></div>
+</div>
+{% endblock %}
+
+{% block style %}
+<style>
+.subscriptions-section,
+.subscriptions-section-title,
+.subscription-subtitle {
+	margin: 0 0 1.5rem 0;
+}
+
+.current-subscription,
+.available-plans,
+.cancellation-options,
+.invoicing-status {
+	margin: 2rem 0;
+	padding: 2rem;
+}
+
+.subscription-subtitle h6 {
+	color: var(--orange-600);
+}
+
+.total-row th,
+.total-row td {
+	border-top: none
+}
+
+.uil {
+	cursor: pointer;
+}
+
+</style>
+{% endblock %}
+
+{% block script %}
+<script>
+frappe.boot = {
+	sysdefaults: {
+		float_precision: parseInt("{{ frappe.get_system_settings('float_precision') or 3 }}"),
+		date_format: "{{ frappe.get_system_settings('date_format') or 'yyyy-mm-dd' }}",
+	}
+};
+</script>
+<script> {% include "templates/pages/subscription.js" %} </script>
+{% endblock %}

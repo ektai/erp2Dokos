@@ -1,0 +1,64 @@
+{% extends "templates/web.html" %}
+
+{% block head_include %}
+<script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
+
+{% block title %} {{ _("Payment") }} {% endblock %}
+
+{%- block header -%}
+{% endblock %}
+
+{%- block page_content -%}
+
+<div class="row stripe">
+	{% if image %}
+	<div class="col-12 text-center stripe-image">
+		<img class="mx-auto h-75" src={{image}}>
+	</div>
+	{% endif %}
+	<div class="col-12">
+		<h2 class="text-center">{{description}}</h2>
+		<form id="payment-form">
+			<div class="frappe-card">
+				<div class="form-group">
+					<label>
+						<span>{{ _("Name") }}</span>
+						<input id="cardholder-name" name="cardholder-name" class="field" placeholder="{{ _('John Doe') }}" value="{{payer_name}}"/>
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						<span>{{ _("Email") }}</span>
+						<input id="cardholder-email" name="cardholder-email" class="field" placeholder="{{ _('john@doe.com') }}" value="{{payer_email}}"/>
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						<span>{{ _("Card Details") }}</span>
+						<div id="card-element" name="card-element" class="field"></div>
+					</label>
+				</div>
+			</div>
+
+			<button type="submit" class="submit" id="card-button">
+				<span id="loading-text" class="hidden">{{ _("Processing...") }}</span>
+				<span id="button-text">{{_('Pay')}} {{ amount }}</span>
+			</button>
+			<p id="card-error" role="alert"></p>
+			<p class="result-message hidden">
+				{{ _("Payment succeeded. Refresh the page to pay again.") }}
+			</p>
+		</form>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>{% include "templates/includes/integrations/stripe_checkout.js" %}</script>
+{% endblock %}
+
+{% block style %}
+<style>{% include "templates/pages/integrations/stripe_checkout.css" %}</style>
+{% endblock %}

@@ -1,0 +1,22 @@
+{
+ "button_gradients": 0,
+ "button_rounded_corners": 1,
+ "button_shadows": 0,
+ "creation": "2020-09-16 17:58:16.283764",
+ "custom": 0,
+ "custom_scss": "",
+ "docstatus": 0,
+ "doctype": "Website Theme",
+ "font_properties": "wght@300;400;500;600;700;800",
+ "google_font": "Varela Round",
+ "idx": 0,
+ "ignored_apps": [],
+ "modified": "2020-09-25 11:05:07.679661",
+ "modified_by": "Administrator",
+ "module": "Portal",
+ "name": "Dokos",
+ "owner": "Administrator",
+ "theme": "Dokos",
+ "theme_scss": "\n@import url('https://fonts.googleapis.com/css2?family=Varela+Round:wght@300;400;500;600;700;800&display=swap');\n$font-family-sans-serif: \"Varela Round\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\n\n$enable-shadows: false;\n$enable-gradients: false;\n$enable-rounded: true;\n\n// Bootstrap Variable Overrides\n\n\n// Import themes from installed apps\n@import \"frappe/public/scss/website\";\n@import \"erpnext/public/scss/website\";\n\n\n\n// Custom Theme\n",
+ "theme_url": "/files/website_theme/dokos_style.css"
+}

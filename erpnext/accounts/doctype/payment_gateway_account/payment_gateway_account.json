@@ -1,0 +1,67 @@
+{
+ "creation": "2015-12-23 21:31:52.699821",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "field_order": [
+  "payment_gateway",
+  "is_default",
+  "column_break_4",
+  "payment_account",
+  "currency"
+ ],
+ "fields": [
+  {
+   "fieldname": "payment_gateway",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Payment Gateway",
+   "options": "Payment Gateway",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_default",
+   "fieldtype": "Check",
+   "label": "Is Default"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Payment Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "payment_account.account_currency",
+   "fieldname": "currency",
+   "fieldtype": "Read Only",
+   "label": "Currency"
+  }
+ ],
+ "modified": "2019-10-29 11:43:52.181515",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Payment Gateway Account",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,1 @@
+Start building a model of your business in dokos by adding your Items and Customers.

@@ -1,0 +1,39 @@
+<div class="pull-right">
+	<button class="btn btn-default btn-sm view-switcher list-view">
+		{{ _("Calendar view") }}
+	</button>
+</div>
+
+<script>
+	frappe.ready(function() {
+		const content = document.getElementsByClassName("page_content")[0]
+		const calendar = content.appendChild(document.createElement('div'))
+		const listview = content.getElementsByClassName("website-list")[0]
+		listview.classList.add("d-block");
+		calendar.id = "calendar-section";
+		calendar.classList.add("portal-calendar");
+		calendar.classList.add("d-none");
+		document.getElementsByClassName("view-switcher")[0].addEventListener("click", function(e) {
+			e.preventDefault();
+			const switcher = document.getElementsByClassName("view-switcher")[0]
+			if (switcher.classList.contains("list-view")) {
+				switcher.innerHTML = __("List view")
+				switcher.classList.replace("list-view", "calendar-view")
+				calendar.classList.replace("d-none", "d-block");
+				listview.classList.replace("d-block", "d-none");
+				calendar.innerHTML = "";
+
+				new erpnext.itemBookingCalendar({
+					parentId: "calendar-section"
+				})
+			} else {
+				switcher.innerHTML = __("Calendar view")
+				switcher.classList.replace("calendar-view", "list-view")
+				calendar.classList.replace("d-block", "d-none");
+				listview.classList.replace("d-none", "d-block");
+			}
+		})
+	});
+</script>
+
+<link rel="stylesheet" href="/assets/css/website-calendar.min.css">

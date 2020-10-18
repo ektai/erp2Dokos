@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "creation": "2020-08-03 08:10:42.541814",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_booking_section",
+  "minute_uom",
+  "clear_item_booking_draft_duration",
+  "column_break_4",
+  "enable_simultaneous_booking",
+  "sync_with_google_calendar"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Item Booking"
+  },
+  {
+   "description": "Used for slots calculation.<br>Please add an UOM conversion factor between each UOM used in booked items and this UOM.",
+   "fieldname": "minute_uom",
+   "fieldtype": "Link",
+   "label": "Minute UOM",
+   "options": "UOM"
+  },
+  {
+   "default": "15",
+   "description": "Minimum 3 minutes.<br>Set 0 to disable this functionality.",
+   "fieldname": "clear_item_booking_draft_duration",
+   "fieldtype": "Int",
+   "label": "Clear drafts after x minutes"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_simultaneous_booking",
+   "fieldtype": "Check",
+   "label": "Enable simultaneous booking"
+  },
+  {
+   "default": "0",
+   "description": "Applicable for shopping cart bookings",
+   "fieldname": "sync_with_google_calendar",
+   "fieldtype": "Check",
+   "label": "Automatically synchronize with Google Calendar"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2020-08-03 09:06:17.733657",
+ "modified_by": "Administrator",
+ "module": "Venue",
+ "name": "Venue Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Venue Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Venue",
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

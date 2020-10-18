@@ -1,0 +1,76 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "Subscriptions",
+   "links": "[\n    {\n        \"label\": \"Subscription\",\n        \"name\": \"Subscription\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Subscription Plan\",\n        \"name\": \"Subscription Plan\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Subscription Template\",\n        \"name\": \"Subscription Template\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Bookings and events",
+   "links": "[\n    {\n        \"label\": \"Event\",\n        \"name\": \"Event\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Item Booking\",\n        \"name\": \"Item Booking\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Event Slot\",\n        \"name\": \"Event Slot\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Event Slot Booking\",\n        \"name\": \"Event Slot Booking\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Item Booking Calendar\",\n        \"name\": \"Item Booking Calendar\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Venue Settings\",\n        \"name\": \"Venue Settings\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Website and portal",
+   "links": "[\n    {\n        \"label\": \"Website Settings\",\n        \"name\": \"Website Settings\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Portal Settings\",\n        \"name\": \"Portal Settings\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Shopping Cart Settings\",\n        \"name\": \"Shopping Cart Settings\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Help Category\",\n        \"name\": \"Help Category\",\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Help Article\",\n        \"name\": \"Help Article\",\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Tools",
+   "links": "[\n    {\n        \"label\": \"Newsletter\",\n        \"name\": \"Newsletter\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    },\n    {\n        \"label\": \"Email Campaign\",\n        \"name\": \"Email Campaign\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    }\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Reports",
+   "links": "[\n    {\n        \"dependencies\": [\n            \"Item Booking\"\n        ],\n        \"is_query_report\": true,\n        \"label\": \"Item Booking Rate\",\n        \"name\": \"Item Booking Rate\",\n        \"type\": \"report\"\n    }\n]"
+  }
+ ],
+ "category": "Modules",
+ "charts": [
+  {
+   "chart_name": "Item Booking Rate",
+   "label": "Item Booking Rate"
+  }
+ ],
+ "color": "#eeb867",
+ "creation": "2020-07-29 10:21:31.420677",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "icon": "fas fa-map-marked-alt",
+ "idx": 0,
+ "is_standard": 1,
+ "label": "Venue",
+ "modified": "2020-09-16 10:13:40.376928",
+ "modified_by": "Administrator",
+ "module": "Venue",
+ "name": "Venue",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "restrict_to_domain": "Venue",
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "label": "Subscription",
+   "link_to": "Subscription",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "label": "Item Booking",
+   "link_to": "Item Booking",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "label": "Event",
+   "link_to": "Event",
+   "type": "DocType"
+  }
+ ]
+}

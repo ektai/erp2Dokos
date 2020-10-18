@@ -1,0 +1,311 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2019-08-29 17:35:30.758349",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "item",
+  "item_name",
+  "user",
+  "color",
+  "column_break_2",
+  "status",
+  "starts_on",
+  "ends_on",
+  "all_day",
+  "repeat_this_event",
+  "repeat",
+  "repeat_till",
+  "rrule",
+  "sync_with_google_calendar",
+  "google_calendar_section",
+  "google_calendar",
+  "column_break_20",
+  "google_calendar_id",
+  "google_calendar_event_id",
+  "notes_section",
+  "notes",
+  "reference_section",
+  "party_type",
+  "column_break_7",
+  "party_name",
+  "event_section",
+  "event",
+  "amended_from",
+  "naming_series"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "starts_on",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Starts On",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ends_on",
+   "fieldtype": "Datetime",
+   "label": "Ends on",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference_section",
+   "fieldtype": "Section Break",
+   "label": "Billing"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Item Booking",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "default": "STO-BOOK-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "STO-BOOK-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "reference_name.party_name",
+   "fieldname": "party_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Party",
+   "options": "party_type"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "User",
+   "options": "User"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "party_type",
+   "fieldtype": "Link",
+   "label": "Party Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "default": "0",
+   "fieldname": "sync_with_google_calendar",
+   "fieldtype": "Check",
+   "label": "Sync with Google Calendar"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.sync_with_google_calendar",
+   "fieldname": "google_calendar_section",
+   "fieldtype": "Section Break",
+   "label": "Google Calendar"
+  },
+  {
+   "fieldname": "google_calendar",
+   "fieldtype": "Link",
+   "label": "Google Calendar",
+   "options": "Google Calendar"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "google_calendar.google_calendar_id",
+   "fieldname": "google_calendar_id",
+   "fieldtype": "Data",
+   "label": "Google Calendar ID",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "google_calendar_event_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Google Calendar Event ID",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "rrule",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "RRULE"
+  },
+  {
+   "default": "0",
+   "fieldname": "all_day",
+   "fieldtype": "Check",
+   "label": "All day"
+  },
+  {
+   "default": "0",
+   "fieldname": "repeat_this_event",
+   "fieldtype": "Check",
+   "label": "Repeat this event"
+  },
+  {
+   "depends_on": "eval:doc.repeat_this_event",
+   "fieldname": "repeat",
+   "fieldtype": "HTML",
+   "label": "Repeat",
+   "read_only": 1
+  },
+  {
+   "fieldname": "repeat_till",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Repeat Until"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Color"
+  },
+  {
+   "default": "Not confirmed",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "In cart\nNot confirmed\nConfirmed\nCancelled"
+  },
+  {
+   "fieldname": "event_section",
+   "fieldtype": "Section Break",
+   "label": "Event"
+  },
+  {
+   "fieldname": "event",
+   "fieldtype": "Link",
+   "label": "Event",
+   "options": "Event"
+  }
+ ],
+ "links": [],
+ "modified": "2020-10-13 17:17:47.299954",
+ "modified_by": "Administrator",
+ "module": "Venue",
+ "name": "Item Booking",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Venue Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Customer",
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "title",
+ "track_changes": 1
+}

@@ -1,0 +1,242 @@
+{
+ "actions": [],
+ "creation": "2013-06-24 16:37:54",
+ "description": "Settings",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "item_naming_by",
+  "item_group",
+  "stock_uom",
+  "default_warehouse",
+  "sample_retention_warehouse",
+  "column_break_4",
+  "valuation_method",
+  "over_delivery_receipt_allowance",
+  "action_if_quality_inspection_is_not_submitted",
+  "show_barcode_field",
+  "clean_description_html",
+  "section_break_7",
+  "auto_insert_price_list_rate_if_missing",
+  "allow_negative_stock",
+  "column_break_10",
+  "automatically_set_serial_nos_based_on_fifo",
+  "set_qty_in_transactions_based_on_serial_no_input",
+  "auto_material_request",
+  "auto_indent",
+  "reorder_email_notify",
+  "inter_warehouse_transfer_settings_section",
+  "allow_from_dn",
+  "allow_from_pr",
+  "freeze_stock_entries",
+  "stock_frozen_upto",
+  "stock_frozen_upto_days",
+  "stock_auth_role",
+  "batch_id_sb",
+  "use_naming_series",
+  "naming_series_prefix"
+ ],
+ "fields": [
+  {
+   "default": "Item Code",
+   "fieldname": "item_naming_by",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Item Naming By",
+   "options": "Item Code\nNaming Series"
+  },
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "stock_uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default Stock UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "default_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "sample_retention_warehouse",
+   "fieldtype": "Link",
+   "label": "Sample Retention Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "valuation_method",
+   "fieldtype": "Select",
+   "label": "Default Valuation Method",
+   "options": "FIFO\nMoving Average"
+  },
+  {
+   "description": "Percentage you are allowed to receive or deliver more against the quantity ordered. For example: If you have ordered 100 units. and your Allowance is 10% then you are allowed to receive 110 units.",
+   "fieldname": "over_delivery_receipt_allowance",
+   "fieldtype": "Float",
+   "label": "Over Delivery/Receipt Allowance (%)"
+  },
+  {
+   "default": "Stop",
+   "fieldname": "action_if_quality_inspection_is_not_submitted",
+   "fieldtype": "Select",
+   "label": "Action if Quality inspection is not submitted",
+   "options": "Stop\nWarn"
+  },
+  {
+   "default": "1",
+   "fieldname": "show_barcode_field",
+   "fieldtype": "Check",
+   "label": "Show Barcode Field"
+  },
+  {
+   "default": "1",
+   "fieldname": "clean_description_html",
+   "fieldtype": "Check",
+   "label": "Convert Item Description to Clean HTML"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_insert_price_list_rate_if_missing",
+   "fieldtype": "Check",
+   "label": "Auto insert Price List rate if missing"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_negative_stock",
+   "fieldtype": "Check",
+   "label": "Allow Negative Stock"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "automatically_set_serial_nos_based_on_fifo",
+   "fieldtype": "Check",
+   "label": "Automatically Set Serial Nos based on FIFO"
+  },
+  {
+   "default": "1",
+   "fieldname": "set_qty_in_transactions_based_on_serial_no_input",
+   "fieldtype": "Check",
+   "label": "Set Qty in Transactions based on Serial No Input"
+  },
+  {
+   "fieldname": "auto_material_request",
+   "fieldtype": "Section Break",
+   "label": "Auto Material Request"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_indent",
+   "fieldtype": "Check",
+   "label": "Raise Material Request when stock reaches re-order level"
+  },
+  {
+   "default": "0",
+   "fieldname": "reorder_email_notify",
+   "fieldtype": "Check",
+   "label": "Notify by Email on creation of automatic Material Request"
+  },
+  {
+   "fieldname": "freeze_stock_entries",
+   "fieldtype": "Section Break",
+   "label": "Freeze Stock Entries"
+  },
+  {
+   "fieldname": "stock_frozen_upto",
+   "fieldtype": "Date",
+   "label": "Stock Frozen Upto"
+  },
+  {
+   "fieldname": "stock_frozen_upto_days",
+   "fieldtype": "Int",
+   "label": "Freeze Stocks Older Than [Days]"
+  },
+  {
+   "fieldname": "stock_auth_role",
+   "fieldtype": "Link",
+   "label": "Role Allowed to edit frozen stock",
+   "options": "Role"
+  },
+  {
+   "fieldname": "batch_id_sb",
+   "fieldtype": "Section Break",
+   "label": "Batch Identification"
+  },
+  {
+   "default": "0",
+   "fieldname": "use_naming_series",
+   "fieldtype": "Check",
+   "label": "Use Naming Series"
+  },
+  {
+   "default": "BATCH-",
+   "depends_on": "eval:doc.use_naming_series==1",
+   "fieldname": "naming_series_prefix",
+   "fieldtype": "Data",
+   "label": "Naming Series Prefix"
+  },
+  {
+   "fieldname": "inter_warehouse_transfer_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Inter Warehouse Transfer Settings"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_from_dn",
+   "fieldtype": "Check",
+   "label": "Allow Material Transfer From Delivery Note and Sales Invoice"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_from_pr",
+   "fieldtype": "Check",
+   "label": "Allow Material Transfer From Purchase Receipt and Purchase Invoice"
+  }
+ ],
+ "icon": "icon-cog",
+ "idx": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2020-09-29 10:50:34.213728",
+ "modified_by": "Administrator",
+ "module": "Stock",
+ "name": "Stock Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Stock Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Stock User"
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC"
+}

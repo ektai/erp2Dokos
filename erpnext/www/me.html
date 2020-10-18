@@ -1,0 +1,158 @@
+{% extends "templates/web.html" %}
+
+{% block head_include %}
+	{% if enable_stripe %}
+		<script src="https://js.stripe.com/v3/"></script>
+	{% endif %}
+{% endblock %}
+
+{% block title %}{{ _("My Account") }}{% endblock %}
+{% block header %}<h2>{{ _("My Account") }}</h2>{% endblock %}
+
+{% block page_content %}
+<!-- no-cache -->
+<div class="your-account-info">
+	<div>
+		<ul class="list-unstyled">
+			<li>
+				<div class="frappe-card w-50">
+					<div class="card-body">
+						<h5 class="card-title">{{ _("Reset your password") }}</h5>
+						<a href="/update-password" class="btn btn-primary">{{ _("Reset password") }}</a>
+					</div>
+				  </div>
+			</li>
+			<li>
+				<div class="frappe-card w-50">
+					<div class="card-body">
+						<h5 class="card-title">{{ _("Edit your user profile") }}</h5>
+						<a href="/update-profile?name={{ user }}" class="btn btn-primary">{{ _("Edit profile") }}</a>
+					</div>
+				</div>
+			</li>
+			{% if third_party_apps %}
+			<li>
+				<div class="frappe-card w-50">
+					<div class="card-body">
+						<h5 class="card-title">{{ _("Manage your third party applications") }}</h5>
+						<a href="/third_party_apps" class="btn btn-primary">{{ _("Manage applications") }}</a>
+					</div>
+				</div>
+			</li>
+			{% endif %}
+			{% if subscription %}
+			<li>
+				<div class="frappe-card w-50">
+					<div class="card-body">
+						<h5 class="card-title">{{ _("Your subscription") }}</h5>
+						{% for plan in subscription.plans %}
+							{% set item_name = frappe.db.get_value("Item", plan.item, "item_name") %}
+							<label>{{ item_name }}</label>
+							<p class="card-text">{{ plan.description or "" }}</p>
+						{% endfor %}
+						<a href="/subscription" class="btn btn-primary">{{ _("Edit subscription") }}</a>
+					</div>
+				</div>
+			</li>
+			{% elif subscriptions_available %}
+			<li>
+				<div class="frappe-card w-50">
+					<div class="card-body">
+						<h5 class="card-title">{{ _("Subscribe to a plan") }}</h5>
+						<a href="/subscription" class="btn btn-primary">{{ _("Subscribe") }}</a>
+					</div>
+				</div>
+			</li>
+			{% endif %}
+			{% if enable_stripe %}
+			<li>
+				<div class="frappe-card w-50">
+					<div class="card-body">
+						<h5 class="card-title">{{ _("Manage your payment methods") }}</h5>
+						{% for details in stripe_payment_methods.data %}
+						<div class="card-body">
+							<h4>{{ details.card.brand or '' }}</h4>
+							<h5>{{ details.card.name or '' }} xxxxx-{{ details.card.last4 or '' }}</h5>
+							<p>{{ _("Expires") }} {{ details.card.exp_month }}/{{ details.card.exp_year }}</p>
+							{% if stripe_payment_methods.data|length > 1 %}
+								<button class="btn btn-danger remove-card" id="{{ details.id }}">{{ _("Delete card") }}</button>
+							{% endif %}
+						</div>
+						<hr>
+						{% endfor %}
+						<form method="post" id="card-form" class="d-none">
+							<div class="mt-5 mb-5">
+								<label for="card-element">
+									{{ _("Credit or debit card") }}
+								</label>
+								<div id="card-element">
+								<!-- A Stripe Element will be inserted here. -->
+								</div>
+							
+								<!-- Used to display form errors. -->
+								<div id="card-errors" role="alert"></div>
+							</div>
+							
+							<button class="btn btn-primary" id="card-submit">{{ _("Add this card") }}</button>
+						</form>
+						<button class="btn btn-primary" id="add-card">{{ _("Add a new card") }}</button>
+					</div>
+				</div>
+			</li>
+			{% endif %}
+		</ul>
+	</div>
+</div>
+<div class="row d-block d-sm-none">
+	<div class="col-12">
+		<ul class="list-group mobile-sidebar">
+			{% for item in sidebar_items -%}
+				<a class="list-group-item" href="{{ item.route }}"
+					{% if item.target %}target="{{ item.target }}"{% endif %}>
+					{{ _(item.title or item.label) }}
+				</a>
+			{%- endfor %}
+		</ul>
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+	<script>
+		{% include "templates/includes/payment_methods.js" %}
+	</script>
+{% endblock %}
+
+
+{% block style %}
+<style>
+.StripeElement {
+	box-sizing: border-box;
+
+	height: 40px;
+
+	padding: 10px 12px;
+
+	border: 1px solid transparent;
+	border-radius: 4px;
+	background-color: white;
+
+	box-shadow: 0 1px 3px 0 #e6ebf1;
+	-webkit-transition: box-shadow 150ms ease;
+	transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+	box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+	border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+	background-color: #fefde5 !important;
+}
+
+</style>
+{% endblock %}

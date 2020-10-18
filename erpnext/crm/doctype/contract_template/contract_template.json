@@ -1,0 +1,106 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:title",
+    "creation": "2018-04-16 06:44:48.791312",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+     "title",
+     "contract_terms",
+     "sb_fulfilment",
+     "requires_fulfilment",
+     "fulfilment_terms"
+    ],
+    "fields": [
+     {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "label": "Title",
+      "unique": 1
+     },
+     {
+      "fieldname": "contract_terms",
+      "fieldtype": "Text Editor",
+      "label": "Contract Terms and Conditions",
+      "read_only": 1
+     },
+     {
+      "fieldname": "sb_fulfilment",
+      "fieldtype": "Section Break"
+     },
+     {
+      "default": "0",
+      "fieldname": "requires_fulfilment",
+      "fieldtype": "Check",
+      "label": "Requires Fulfilment"
+     },
+     {
+      "depends_on": "eval:doc.requires_fulfilment==1",
+      "fieldname": "fulfilment_terms",
+      "fieldtype": "Table",
+      "label": "Fulfilment Terms and Conditions",
+      "options": "Contract Template Fulfilment Terms"
+     }
+    ],
+    "links": [],
+    "modified": "2020-06-03 00:24:58.179816",
+    "modified_by": "Administrator",
+    "module": "CRM",
+    "name": "Contract Template",
+    "owner": "Administrator",
+    "permissions": [
+     {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+     },
+     {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Sales Manager",
+      "share": 1,
+      "write": 1
+     },
+     {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Purchase Manager",
+      "share": 1,
+      "write": 1
+     },
+     {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "HR Manager",
+      "share": 1,
+      "write": 1
+     }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+   }

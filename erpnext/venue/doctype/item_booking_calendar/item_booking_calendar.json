@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:calendar_title",
+ "creation": "2019-09-25 09:39:42.209416",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "calendar_title",
+  "section_break_2",
+  "uom",
+  "column_break_4",
+  "item",
+  "calendar_type_section",
+  "calendar_type",
+  "booking_calendar_section",
+  "booking_calendar"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Unit of Measure",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "booking_calendar",
+   "fieldtype": "Table",
+   "label": "Booking Calendar",
+   "options": "Item Booking Calendars",
+   "reqd": 1
+  },
+  {
+   "fieldname": "calendar_title",
+   "fieldtype": "Data",
+   "label": "Calendar Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "booking_calendar_section",
+   "fieldtype": "Section Break",
+   "label": "Booking Calendar"
+  },
+  {
+   "fieldname": "calendar_type_section",
+   "fieldtype": "Section Break",
+   "label": "Calendar Type"
+  },
+  {
+   "default": "Daily",
+   "fieldname": "calendar_type",
+   "fieldtype": "Select",
+   "label": "Calendar Type",
+   "options": "Daily\nMonthly"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2020-08-24 17:46:17.477192",
+ "modified_by": "Administrator",
+ "module": "Venue",
+ "name": "Item Booking Calendar",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Venue Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

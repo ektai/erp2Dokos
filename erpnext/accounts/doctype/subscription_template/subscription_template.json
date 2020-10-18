@@ -1,0 +1,230 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:template_name",
+ "creation": "2020-07-27 11:19:31.241758",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "currency",
+  "days_until_due",
+  "settings_section",
+  "create_sales_order",
+  "generate_invoice_at_period_start",
+  "submit_invoice",
+  "generate_payment_request",
+  "column_break_8",
+  "billing_interval",
+  "billing_interval_count",
+  "start_date",
+  "plans_section",
+  "subscription_plan",
+  "discounts_section",
+  "apply_additional_discount",
+  "column_break_16",
+  "additional_discount_percentage",
+  "additional_discount_amount",
+  "terms_section",
+  "terms_and_conditions",
+  "portal_section",
+  "enable_on_portal",
+  "portal_image",
+  "portal_description",
+  "payment_gateways_section",
+  "payment_gateways"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "label": "Template Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "days_until_due",
+   "fieldtype": "Int",
+   "label": "Days Until Due"
+  },
+  {
+   "fieldname": "settings_section",
+   "fieldtype": "Section Break",
+   "label": "Settings"
+  },
+  {
+   "default": "0",
+   "fieldname": "create_sales_order",
+   "fieldtype": "Check",
+   "label": "Generate a sales order at beginning Of period"
+  },
+  {
+   "default": "0",
+   "fieldname": "generate_invoice_at_period_start",
+   "fieldtype": "Check",
+   "label": "Generate the invoice at beginning of period"
+  },
+  {
+   "default": "0",
+   "fieldname": "submit_invoice",
+   "fieldtype": "Check",
+   "label": "Submit invoice automatically"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Month",
+   "fieldname": "billing_interval",
+   "fieldtype": "Select",
+   "label": "Billing Interval",
+   "options": "Day\nWeek\nMonth\nYear"
+  },
+  {
+   "default": "1",
+   "fieldname": "billing_interval_count",
+   "fieldtype": "Int",
+   "label": "Billing Interval Count"
+  },
+  {
+   "fieldname": "plans_section",
+   "fieldtype": "Section Break",
+   "label": "Plans"
+  },
+  {
+   "fieldname": "subscription_plan",
+   "fieldtype": "Link",
+   "label": "Subscription Plan",
+   "options": "Subscription Plan"
+  },
+  {
+   "default": "Creation date",
+   "fieldname": "start_date",
+   "fieldtype": "Select",
+   "label": "Start Date",
+   "options": "Creation date\n1st day of the month\n15th day of the month\nLast day of the month"
+  },
+  {
+   "fieldname": "discounts_section",
+   "fieldtype": "Section Break",
+   "label": "Discounts"
+  },
+  {
+   "fieldname": "apply_additional_discount",
+   "fieldtype": "Select",
+   "label": "Apply Additional Discount On",
+   "options": "\nGrand Total\nNet Total"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "additional_discount_percentage",
+   "fieldtype": "Percent",
+   "label": "Additional DIscount Percentage"
+  },
+  {
+   "fieldname": "additional_discount_amount",
+   "fieldtype": "Currency",
+   "label": "Additional DIscount Amount"
+  },
+  {
+   "fieldname": "terms_section",
+   "fieldtype": "Section Break",
+   "label": "Terms and conditions"
+  },
+  {
+   "fieldname": "terms_and_conditions",
+   "fieldtype": "Link",
+   "label": "Terms and conditions",
+   "options": "Terms and Conditions"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "portal_section",
+   "fieldtype": "Section Break",
+   "label": "Portal"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_on_portal",
+   "fieldtype": "Check",
+   "label": "Enable on portal"
+  },
+  {
+   "fieldname": "portal_image",
+   "fieldtype": "Attach Image",
+   "label": "Portal image"
+  },
+  {
+   "fieldname": "portal_description",
+   "fieldtype": "Text Editor",
+   "label": "Portal description",
+   "translatable": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "generate_payment_request",
+   "fieldtype": "Check",
+   "label": "Generate a payment request automatically"
+  },
+  {
+   "fieldname": "payment_gateways_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Gateways"
+  },
+  {
+   "fieldname": "payment_gateways",
+   "fieldtype": "Table MultiSelect",
+   "label": "Autorized payment gateways",
+   "options": "Portal Payment Gateways"
+  }
+ ],
+ "image_field": "portal_image",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2020-08-28 17:46:23.090182",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Subscription Template",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

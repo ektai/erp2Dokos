@@ -1,0 +1,34 @@
+{% extends "templates/web.html" %}
+
+{%- block head_include %}
+<link rel="stylesheet" href="/assets/css/website-calendar.min.css">
+{% endblock -%}
+
+{% block title %} {{ _(title) }} {% endblock %}
+
+{% block header %}<h2>{{ _(title) }}</h2>{% endblock %}
+
+{% block page_content %}
+<div id="event-slots" class="portal-calendar"></div>
+{% endblock %}
+
+{% block script %}
+<script>
+frappe.boot = {
+	sysdefaults: {
+		float_precision: parseInt("{{ frappe.get_system_settings('float_precision') or 3 }}"),
+		date_format: "{{ frappe.get_system_settings('date_format') or 'yyyy-mm-dd' }}",
+	}
+};
+</script>
+<script> {% include "templates/pages/event-slots.js" %} </script>
+{% endblock %}
+
+{% block style %}
+<style>
+.fc .fc-event.fc-bg-event {
+	color: #fff;
+	cursor: default;
+}
+</style>
+{% endblock %}

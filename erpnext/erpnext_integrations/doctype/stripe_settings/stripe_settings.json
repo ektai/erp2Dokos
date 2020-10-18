@@ -1,0 +1,128 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:gateway_name",
+ "creation": "2017-03-09 17:18:29.458397",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "gateway_name",
+  "publishable_key",
+  "webhook_secret_key",
+  "column_break_3",
+  "secret_key",
+  "redirection_section",
+  "header_img",
+  "column_break_7",
+  "redirect_url",
+  "failure_redirect_url",
+  "bank_section",
+  "bank_account",
+  "settings_section",
+  "subscription_cycle_on_stripe"
+ ],
+ "fields": [
+  {
+   "fieldname": "gateway_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Payment Gateway Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "publishable_key",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Publishable Key",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "secret_key",
+   "fieldtype": "Password",
+   "in_list_view": 1,
+   "label": "Secret Key",
+   "reqd": 1
+  },
+  {
+   "fieldname": "header_img",
+   "fieldtype": "Attach Image",
+   "label": "Header Image"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "payment-success",
+   "fieldname": "redirect_url",
+   "fieldtype": "Data",
+   "label": "Success redirect URL"
+  },
+  {
+   "fieldname": "webhook_secret_key",
+   "fieldtype": "Password",
+   "label": "Webhook Secret Key"
+  },
+  {
+   "fieldname": "bank_section",
+   "fieldtype": "Section Break",
+   "label": "Bank"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Bank Account"
+  },
+  {
+   "default": "payment-failed",
+   "fieldname": "failure_redirect_url",
+   "fieldtype": "Data",
+   "label": "Failure redirect URL"
+  },
+  {
+   "fieldname": "settings_section",
+   "fieldtype": "Section Break",
+   "label": "Settings"
+  },
+  {
+   "fieldname": "redirection_section",
+   "fieldtype": "Section Break",
+   "label": "Redirection"
+  },
+  {
+   "default": "0",
+   "fieldname": "subscription_cycle_on_stripe",
+   "fieldtype": "Check",
+   "label": "Let Stripe handle the subscription cycle"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2020-09-08 12:17:42.471634",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integrations",
+ "name": "Stripe Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

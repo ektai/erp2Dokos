@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:plan_name",
+ "creation": "2018-02-24 11:31:23.066506",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "plan_name",
+  "subscription_plans_template",
+  "portal_section",
+  "enable_on_portal",
+  "portal_image",
+  "column_break_6",
+  "customer_group",
+  "section_break_8",
+  "portal_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "plan_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Plan Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "subscription_plans_template",
+   "fieldtype": "Table",
+   "label": "Subscription Plans Template",
+   "options": "Subscription Plan Detail"
+  },
+  {
+   "fieldname": "portal_section",
+   "fieldtype": "Section Break",
+   "label": "Portal"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_on_portal",
+   "fieldtype": "Check",
+   "label": "Edit on portal"
+  },
+  {
+   "fieldname": "portal_image",
+   "fieldtype": "Attach Image",
+   "label": "Portal Image"
+  },
+  {
+   "fieldname": "portal_description",
+   "fieldtype": "Text Editor",
+   "label": "Portal Description",
+   "translatable": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_group",
+   "fieldtype": "Link",
+   "label": "Limit to Customer Group",
+   "options": "Customer Group"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  }
+ ],
+ "image_field": "portal_image",
+ "links": [],
+ "modified": "2020-08-17 18:53:54.336637",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Subscription Plan",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "plan_name",
+ "track_changes": 1
+}

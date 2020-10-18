@@ -1,0 +1,310 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2018-10-22 18:19:02.784533",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "date",
+  "reference_number",
+  "status",
+  "column_break_2",
+  "company",
+  "bank_account",
+  "bank_account_head",
+  "currency",
+  "section_break_4",
+  "debit",
+  "column_break_7",
+  "credit",
+  "section_break_10",
+  "description",
+  "section_break_14",
+  "payment_entries",
+  "section_break_17",
+  "total_debit",
+  "column_break_19",
+  "total_credit",
+  "section_break_18",
+  "allocated_amount",
+  "amended_from",
+  "column_break_17",
+  "unallocated_amount"
+ ],
+ "fields": [
+  {
+   "default": "ACC-BTN-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "no_copy": 1,
+   "options": "ACC-BTN-.YYYY.-",
+   "print_hide": 1,
+   "reqd": 1,
+   "set_only_once": 1,
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "default": "Unreconciled",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nPending\nSettled\nUnreconciled\nReconciled\nCancelled\nClosed",
+   "read_only": 1,
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Bank Account",
+   "options": "Bank Account",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fetch_from": "bank_account.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1,
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "debit",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Debit",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "credit",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Credit",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Description",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break",
+   "hide_border": 1,
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "reference_number",
+   "fieldtype": "Data",
+   "label": "Reference Number",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "payment_entries",
+   "fieldtype": "Table",
+   "label": "Payment Entries",
+   "options": "Bank Transaction Payments",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "allocated_amount",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Allocated Amount",
+   "read_only": 1,
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Bank Transaction",
+   "print_hide": 1,
+   "read_only": 1,
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "unallocated_amount",
+   "fieldtype": "Currency",
+   "label": "Difference",
+   "read_only": 1,
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break",
+   "hide_border": 1,
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_debit",
+   "fieldtype": "Currency",
+   "label": "Total Debit",
+   "read_only": 1,
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break",
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_credit",
+   "fieldtype": "Currency",
+   "label": "Total Credit",
+   "read_only": 1,
+   "show_days": 1,
+   "show_seconds": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "bank_account.account",
+   "fieldname": "bank_account_head",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Bank Account Head",
+   "options": "Account",
+   "show_days": 1,
+   "show_seconds": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-06-08 09:29:00.520709",
+ "modified_by": "chdecultot@dokos.io",
+ "module": "Accounts",
+ "name": "Bank Transaction",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "date",
+ "sort_order": "DESC",
+ "title_field": "bank_account"
+}

@@ -1,0 +1,50 @@
+{
+ "allow_roles": [
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  }
+ ],
+ "creation": "2020-05-13 19:03:32.564049",
+ "docstatus": 0,
+ "doctype": "Module Onboarding",
+ "documentation_url": "https://doc.dokos.io/dokos/accounting/",
+ "idx": 0,
+ "is_complete": 0,
+ "modified": "2020-08-19 09:13:24.117177",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Accounts",
+ "owner": "Administrator",
+ "steps": [
+  {
+   "step": "Chart of Accounts"
+  },
+  {
+   "step": "Setup Taxes"
+  },
+  {
+   "step": "Create a Product"
+  },
+  {
+   "step": "Create a Supplier"
+  },
+  {
+   "step": "Create Your First Purchase Invoice"
+  },
+  {
+   "step": "Create a Customer"
+  },
+  {
+   "step": "Create Your First Sales Invoice"
+  },
+  {
+   "step": "Configure Account Settings"
+  }
+ ],
+ "subtitle": "Accounts, invoices and taxes.",
+ "success_message": "The accounting module is set up !",
+ "title": "Let's set up your accounts and taxes."
+}

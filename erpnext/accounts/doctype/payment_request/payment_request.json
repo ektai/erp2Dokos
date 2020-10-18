@@ -1,0 +1,327 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2015-12-15 22:23:24.745065",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "transaction_date",
+  "payment_key",
+  "no_payment_link",
+  "column_break_2",
+  "naming_series",
+  "reference_doctype",
+  "reference_name",
+  "transaction_details",
+  "grand_total",
+  "base_amount",
+  "exchange_rate",
+  "fee_amount",
+  "column_break_18",
+  "currency",
+  "section_break_7",
+  "payment_gateways_template",
+  "payment_gateways",
+  "section_break_15",
+  "payment_gateway",
+  "transaction_reference",
+  "column_break_17",
+  "payment_gateway_account",
+  "recipient_and_message",
+  "subject",
+  "mute_email",
+  "column_break_9",
+  "email_to",
+  "print_format",
+  "make_sales_invoice",
+  "section_break_10",
+  "email_template",
+  "message",
+  "payment_url",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "label": "Transaction Date"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "ACC-PRQ-.YYYY.-.MM.-.DD.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Series",
+   "no_copy": 1,
+   "options": "ACC-PRQ-.YYYY.-.MM.-.DD.-",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Reference Doctype",
+   "options": "DocType",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Reference Name",
+   "options": "reference_doctype",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "transaction_details",
+   "fieldtype": "Section Break",
+   "label": "Transaction Details"
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Amount in transaction currency",
+   "options": "currency"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Transaction Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "recipient_and_message",
+   "fieldtype": "Section Break",
+   "label": "Recipient Message And Payment Details"
+  },
+  {
+   "depends_on": "eval:!doc.mute_email",
+   "fieldname": "print_format",
+   "fieldtype": "Select",
+   "label": "Attachment Print Format"
+  },
+  {
+   "depends_on": "eval:!doc.mute_email",
+   "fieldname": "email_to",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "To",
+   "options": "Email"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Subject / Description"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nDraft\nInitiated\nPending\nPaid\nFailed\nCancelled\nCompleted",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.reference_doctype==\"Sales Order\"",
+   "fieldname": "make_sales_invoice",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Make Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:!doc.mute_email",
+   "fieldname": "message",
+   "fieldtype": "Text Editor",
+   "label": "Message"
+  },
+  {
+   "default": "0",
+   "fieldname": "mute_email",
+   "fieldtype": "Check",
+   "label": "Mute Email",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "payment_url",
+   "fieldtype": "Small Text",
+   "label": "payment_url",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:!doc.no_payment_link",
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "Payment Gateways"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Payment Request",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_key",
+   "fieldtype": "Data",
+   "label": "Payment Key",
+   "no_copy": 1,
+   "read_only": 1,
+   "set_only_once": 1,
+   "unique": 1
+  },
+  {
+   "depends_on": "eval:!doc.mute_email",
+   "fieldname": "email_template",
+   "fieldtype": "Link",
+   "label": "Message Template",
+   "options": "Email Template"
+  },
+  {
+   "fieldname": "payment_gateways",
+   "fieldtype": "Table MultiSelect",
+   "label": "Payment Gateways",
+   "mandatory_depends_on": "eval:!doc.no_payment_link",
+   "options": "Portal Payment Gateways"
+  },
+  {
+   "fieldname": "payment_gateways_template",
+   "fieldtype": "Link",
+   "label": "Payment Gateways Template",
+   "options": "Portal Payment Gateways Template"
+  },
+  {
+   "fieldname": "payment_gateway",
+   "fieldtype": "Link",
+   "label": "Selected Payment Gateway",
+   "no_copy": 1,
+   "options": "Payment Gateway",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:!doc.no_payment_link",
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_gateway_account",
+   "fieldtype": "Link",
+   "label": "Payment Gateway Account",
+   "no_copy": 1,
+   "options": "Payment Gateway Account",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:!doc.no_payment_link",
+   "description": "Fees included in the total amount",
+   "fieldname": "fee_amount",
+   "fieldtype": "Currency",
+   "label": "Fee Amount"
+  },
+  {
+   "fieldname": "base_amount",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Amount in company currency",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Exchange Rate",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "no_payment_link",
+   "fieldtype": "Check",
+   "label": "Do not create a payment link"
+  },
+  {
+   "fieldname": "transaction_reference",
+   "fieldtype": "Data",
+   "label": "Transaction Reference",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-09-24 15:22:45.055942",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Payment Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

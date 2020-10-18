@@ -1,0 +1,59 @@
+{
+ "allow_rename": 1,
+ "autoname": "field:template_name",
+ "creation": "2019-08-20 14:31:53.316425",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "payment_gateways",
+  "email_template"
+ ],
+ "fields": [
+  {
+   "fieldname": "payment_gateways",
+   "fieldtype": "Table MultiSelect",
+   "label": "Payment Gateways",
+   "options": "Portal Payment Gateways",
+   "reqd": 1
+  },
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Template Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "email_template",
+   "fieldtype": "Link",
+   "label": "Email Template",
+   "options": "Email Template"
+  }
+ ],
+ "modified": "2019-10-29 11:45:31.414852",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Portal Payment Gateways Template",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

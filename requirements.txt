@@ -1,0 +1,14 @@
+braintree==3.57.1
+frappe
+gocardless-pro==1.21.0
+ofxtools==0.8.16
+plaid-python==3.4.0
+pycountry==19.8.18
+PyGithub==1.44.1
+python-stdnum==1.12
+python-youtube==0.6.0
+sepaxml==2.2.0
+taxjar==1.9.0
+tweepy==3.8.0
+Unidecode==1.1.1
+WooCommerce==2.1.1
